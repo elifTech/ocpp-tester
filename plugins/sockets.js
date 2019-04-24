@@ -2,7 +2,8 @@ import Vue from 'vue';
 import VueNativeSock from 'vue-native-websocket';
 
 export default ({ store }, inject) => {
-  Vue.use(VueNativeSock, `ws://${location.host}/logger`, {
+  const protocol = location.protocol === 'http:' ? 'ws:' : 'wss:';
+  Vue.use(VueNativeSock, `${protocol}//${location.host}/logger`, {
     store,
     reconnection: true, // (Boolean) whether to reconnect automatically (false)
     reconnectionAttempts: 5, // (Number) number of reconnection attempts before giving up (Infinity),

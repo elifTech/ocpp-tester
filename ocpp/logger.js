@@ -1,4 +1,6 @@
+import fs from 'fs';
 import debugFn from 'debug';
+
 import {
   DEBUG_LIBNAME
 } from './constants';
@@ -32,6 +34,7 @@ export default class Logger {
     }
 
     debug(message);
+    fs.appendFile(__dirname + '../messages.log', message);
     this.sendMessage({ command: 'message', message });
   }
 
