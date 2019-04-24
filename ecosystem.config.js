@@ -5,6 +5,7 @@ module.exports = {
     script: "npm",
     args: "start",
     env: {
+      DEBUG: 'ocpp-eliftech',
       HOST: '0.0.0.0',
       PORT: 80,
       NODE_TLS_REJECT_UNAUTHORIZED: '0'
