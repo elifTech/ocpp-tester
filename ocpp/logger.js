@@ -34,7 +34,7 @@ export default class Logger {
     }
 
     debug(message);
-    fs.appendFile(__dirname + '../messages.log', message);
+    fs.appendFile(__dirname + '../messages.log', message, function() {});
     this.sendMessage({ command: 'message', message });
   }
 
