@@ -1,0 +1,40 @@
+{
+  "name": "ocpp",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "scripts": {
+    "dev": "babel-node index.js",
+    "build": "nuxt build",
+    "start": "babel-node index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/vuetify": "^0.5.5",
+    "cross-env": "^5.2.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "node-sass": "^4.11.0",
+    "nuxt": "~2.6",
+    "nuxt-class-component": "^1.2.1",
+    "ocpp-eliftech": "^1.0.2",
+    "sass-loader": "^7.1.0",
+    "vue-mq": "^1.0.1",
+    "vue-native-websocket": "^2.0.13",
+    "vue-property-decorator": "^7.3.0",
+    "vuetify": "^1.5.13",
+    "vuex-persistedstate": "^2.5.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/runtime-corejs3": "^7.4.3",
+    "@nuxt/babel-preset-app": "^2.6.2",
+    "core-js": "^3.0.1"
+  }
+}
