@@ -20,7 +20,7 @@ export default class Logger {
     this.messages = [];
   }
 
-  addSocket(socket) {
+  async addSocket(socket) {
     this.sockets.push(socket);
 
     socket.on('message', (msg) => {
