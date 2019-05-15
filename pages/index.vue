@@ -66,7 +66,7 @@
     }
 
     send(command) {
-      this.$socket.send(JSON.stringify([command, { connectorId: this.connectorId, idTag: this.idTag}]))
+      this.$socket.send(JSON.stringify([command, { connectorId: +this.connectorId, idTag: this.idTag}]))
     }
   }
 </script>
