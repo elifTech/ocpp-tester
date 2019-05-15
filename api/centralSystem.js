@@ -66,7 +66,7 @@ function createServer(server) {
         // client.info = client.info || {};
         // client.info.connectors = client.info.connectors || [];
 
-        const connectorIndex = client.info.connectors.findIndex(item => command.connectorId === item.connectorId);
+        /*const connectorIndex = client.info.connectors.findIndex(item => command.connectorId === item.connectorId);
         if (connectorIndex === -1) {
           client.info.connectors.push({
             ...command
@@ -76,7 +76,7 @@ function createServer(server) {
             ...command
           };
         }
-        await cSystem.onStatusUpdate();
+        await cSystem.onStatusUpdate();*/
         return {};
       default:
         throw new OCPPError(ERROR_NOTIMPLEMENTED, 'Unknown command');
