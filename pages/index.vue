@@ -18,8 +18,8 @@
     </v-flex>
 
     <v-btn @click="send('MeterValues')">MeterValues</v-btn>
-    <v-btn :disabled="!connectorId" @click="send('StartTransaction')">Start transaction</v-btn>
-    <v-btn :disabled="!connectorId" @click="send('StopTransaction')">Stop transaction</v-btn>
+    <v-btn @click="send('StartTransaction')">Start transaction</v-btn>
+    <v-btn @click="send('StopTransaction')">Stop transaction</v-btn>
 
     <v-divider></v-divider>
     <br/>
