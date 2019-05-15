@@ -17,7 +17,7 @@
       ></v-text-field>
     </v-flex>
 
-    <v-btn :disabled="!connectorId" @click="send('MeterValues')">MeterValues</v-btn>
+    <v-btn @click="send('MeterValues')">MeterValues</v-btn>
     <v-btn :disabled="!connectorId" @click="send('StartTransaction')">Start transaction</v-btn>
     <v-btn :disabled="!connectorId" @click="send('StopTransaction')">Stop transaction</v-btn>
 
