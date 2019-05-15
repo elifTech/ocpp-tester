@@ -1,6 +1,8 @@
 <template>
   <div class="container p-lg-top-bottom">
 
+    <v-btn @click="send('GetConfiguration')">GetConfiguration</v-btn>
+
     Log:
     <log-list :list="logMessages"></log-list>
 
@@ -32,6 +34,10 @@
     @State logMessages;
 
     mounted () {
+    }
+
+    send(command) {
+      this.$socket.send('some data')
     }
   }
 </script>

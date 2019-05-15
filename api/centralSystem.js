@@ -30,7 +30,7 @@ function createServer(server) {
         return {
           status: BootNotificationConst.STATUS_ACCEPTED,
           currentTime: new Date().toISOString(),
-          interval: 60
+          interval: 600
         };
 
       case command instanceof OCPPCommands.Authorize:

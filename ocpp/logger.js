@@ -1,5 +1,6 @@
 import fs from 'fs';
 import debugFn from 'debug';
+import OCPPCommands from './commands';
 
 import {
   DEBUG_LIBNAME
@@ -13,14 +14,23 @@ export const LOGGER_URL = '/logger';
 const COUNT_MESSAGE_TO_STORE = 10;
 
 export default class Logger {
-  constructor() {
+  constructor(centralSystem) {
+    this.centralSystem = centralSystem;
     this.sockets = [];
     this.messages = [];
   }
 
   addSocket(socket) {
     this.sockets.push(socket);
-    console.info('add');
+
+    socket.on('message', (msg) => {
+      console.info(msg);
+
+      for (let client of this.centralSystem.clients) {
+        await client.connection.send(new OCPPCommands.GetConfiguration());
+      }
+    });
+
     socket.send(JSON.stringify({ command: 'history', messages: this.messages }));
   }
 

@@ -14,7 +14,7 @@ export default class CentralSystem {
   constructor (options) {
     this.options = options || {};
     this.clients = [];
-    this.logger = new Logger();
+    this.logger = new Logger(this);
   }
 
   listen (port = 9220, host = null) {
