@@ -27,6 +27,7 @@ function createServer(server) {
           connectors: [],
           ...command
         };
+
         return {
           status: BootNotificationConst.STATUS_ACCEPTED,
           currentTime: new Date().toISOString(),

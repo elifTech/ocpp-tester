@@ -23,11 +23,10 @@ export default class Logger {
   addSocket(socket) {
     this.sockets.push(socket);
 
-    socket.on('message', async (msg) => {
-      console.info(msg);
+    socket.on('message', async (requestedMessage) => {
 
       for (let client of this.centralSystem.clients) {
-        await client.connection.send(new OCPPCommands.GetConfiguration());
+        await client.connection.send(new OCPPCommands.TriggerMessage({ requestedMessage }));
       }
     });
 
