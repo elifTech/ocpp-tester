@@ -32,7 +32,7 @@ export default class Logger {
         } else if (requestedMessage === 'StopTransaction') {
           await client.connection.send(new OCPPCommands.StopTransaction({ connectorId }));
         } else {
-          await client.connection.send(new OCPPCommands.TriggerMessage({ requestedMessage, connectorId }));
+          await client.connection.send(new OCPPCommands.TriggerMessage(connectorId ? { requestedMessage, connectorId } : { requestedMessage }));
         }
       }
     });
