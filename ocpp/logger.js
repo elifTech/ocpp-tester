@@ -23,10 +23,17 @@ export default class Logger {
   addSocket(socket) {
     this.sockets.push(socket);
 
-    socket.on('message', async (requestedMessage) => {
+    socket.on('message', async (message) => {
+      const [requestedMessage, connectorId] = JSON.parse(message);
 
       for (let client of this.centralSystem.clients) {
-        await client.connection.send(new OCPPCommands.TriggerMessage({ requestedMessage }));
+        if (requestedMessage === 'StartTransaction') {
+          await client.connection.send(new OCPPCommands.StartTransaction({ connectorId }));
+        } else if (requestedMessage === 'StopTransaction') {
+          await client.connection.send(new OCPPCommands.StopTransaction({ connectorId }));
+        } else {
+          await client.connection.send(new OCPPCommands.TriggerMessage({ requestedMessage, connectorId }));
+        }
       }
     });
 

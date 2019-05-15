@@ -5,8 +5,21 @@
     <v-btn @click="send('DiagnosticsStatusNotification')">DiagnosticsStatusNotification</v-btn>
     <v-btn @click="send('FirmwareStatusNotification')">FirmwareStatusNotification</v-btn>
     <v-btn @click="send('Heartbeat')">Heartbeat</v-btn>
-    <v-btn @click="send('MeterValues')">MeterValues</v-btn>
     <v-btn @click="send('StatusNotification')">StatusNotification</v-btn>
+
+    <v-divider></v-divider>
+    <br/>
+
+    <v-flex xs12 sm6>
+      <v-text-field
+          label="ConnectionID"
+          single-line v-model="connectorId"
+      ></v-text-field>
+    </v-flex>
+
+    <v-btn :disabled="!connectorId" @click="send('MeterValues')">MeterValues</v-btn>
+    <v-btn :disabled="!connectorId" @click="send('StartTransaction')">Start transaction</v-btn>
+    <v-btn :disabled="!connectorId" @click="send('StopTransaction')">Stop transaction</v-btn>
 
     <v-divider></v-divider>
     <br/>
@@ -40,11 +53,13 @@
   class IndexPage extends Vue {
     @State logMessages;
 
+    connectorId = '';
+
     mounted () {
     }
 
     send(command) {
-      this.$socket.send(command)
+      this.$socket.send(JSON.stringify([command, this.connectorId]))
     }
   }
 </script>
