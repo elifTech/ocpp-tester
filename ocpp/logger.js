@@ -20,10 +20,10 @@ export default class Logger {
     this.messages = [];
   }
 
-  async addSocket(socket) {
+  addSocket(socket) {
     this.sockets.push(socket);
 
-    socket.on('message', (msg) => {
+    socket.on('message', async (msg) => {
       console.info(msg);
 
       for (let client of this.centralSystem.clients) {
