@@ -28,9 +28,9 @@ export default class Logger {
 
       for (let client of this.centralSystem.clients) {
         if (requestedMessage === 'StartTransaction') {
-          await client.connection.send(new OCPPCommands.StartTransaction(payload));
+          await client.connection.send(new OCPPCommands.RemoteStartTransaction(payload));
         } else if (requestedMessage === 'StopTransaction') {
-          await client.connection.send(new OCPPCommands.StopTransaction(payload));
+          await client.connection.send(new OCPPCommands.RemoteStopTransaction(payload));
         } else {
           if (!payload.connectorId) {
             delete payload.connectorId;
