@@ -11,7 +11,7 @@ const debug = debugFn(DEBUG_LIBNAME);
 
 export const LOGGER_URL = '/logger';
 
-const COUNT_MESSAGE_TO_STORE = 10;
+const COUNT_MESSAGE_TO_STORE = 100;
 
 export default class Logger {
   constructor(centralSystem) {
